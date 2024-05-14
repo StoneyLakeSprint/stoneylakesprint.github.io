@@ -95,11 +95,38 @@ h2 {
 
 
 
+
 .donate:hover{
     background-color: #353e3b;
     transition: 0.4s;
 
 }
+
+
+.register{
+    color:#000;
+    border-radius: 20%;;
+    background-color: #156c7c;
+    font-family: "Francois One", sans-serif;
+    padding: 25px;
+    margin: 10px;
+    border: 10px solid #156c7c;  
+    transition: 0.4s;
+}
+
+
+
+
+
+.register:hover{
+    background-color: #353e3b;
+    transition: 0.4s;
+
+}
+
+
+
+
 
 .volunteer-image{
     align-self: center;

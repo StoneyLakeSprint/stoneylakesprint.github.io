@@ -10,7 +10,7 @@ function downloadCalendar() {
         'DTSTART:20220720T091500\n',
         'DTEND:20220720T130000\n',
         'SUMMARY:Stoney Lake Sprint\n',
-        'DESCRIPTION:Kids 1km race starts at 9:30 am.\n5km run/walk starts at 10:00 am.\n',
+        'DESCRIPTION:Kids 1km race starts at 9:30 am. -- 5km run/walk starts at 10:00 am.\n',
         'LOCATION:595 Mount Julian Viamede Road, Woodview, ON K0L 3E0\n',
         'END:VEVENT\n',
         'END:VCALENDAR\n'
