@@ -1,0 +1,200 @@
+
+.francois-one-regular {
+    font-family: "Francois One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
+    background-color: #0b444d;
+    color: #ffffff;
+    position: relative; /* Ensure proper positioning */
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 100%;
+    border: 5px solid #eaebeb;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+section {
+    transition: font-size 0.5s, opacity 0.5s;
+    margin-bottom: 50px;
+    
+}
+h2 {
+    color: #41839b;
+    font-size: 40px;
+}
+
+
+.link-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+.link-container a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+#ready-section {
+    text-align: center;
+    margin-top: 20px;
+    position: relative; /* Fixed position */
+    bottom: 0; /* Align to the bottom */
+    width: 100%; /* Full width */
+}
+
+.ready, .set, .go {
+    display: inline-block;
+    font-size: 24px; /* Initial font size */
+    opacity: 0; /* Initially hidden */
+    transition: font-size 0.5s, opacity 0.5s; /* Transition for font size and opacity */
+}
+
+.ready.active, .set.active, .go.active {
+    font-size: 48px; /* Increased font size */
+    opacity: 1; /* Visible */
+}
+.downloadButton{
+    border-radius: 20%;;
+    background-color: #156c7c;
+    font-family: "Francois One", sans-serif;
+    border: 10px solid #156c7c;
+    transition: 0.4s;
+    
+    
+}
+
+.downloadButton:hover{
+    background-color: #353e3b;
+    transition: 0.4s;
+}
+.donate{
+    color:#000;
+    border-radius: 20%;;
+    background-color: #156c7c;
+    font-family: "Francois One", sans-serif;
+    border: 10px solid #156c7c;  
+    transition: 0.4s;
+}
+
+
+
+
+.donate:hover{
+    background-color: #353e3b;
+    transition: 0.4s;
+
+}
+
+.volunteer-image{
+    align-self: center;
+    size: 30%;
+    border-radius: 15%;
+    border: 5px solid #156c7c;
+}
+
+.location{
+    width: auto;
+    height: auto;
+}
+
+footer {
+    text-align: center;}
+    
+.footer-container {
+background-color: #156c7c;
+display: flex;}
+
+.footer-container a {
+color: #F5F6F7;
+padding: 42px 16px;
+text-decoration: none;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size: medium;}
+
+.footer-left {
+margin-right: auto}
+
+.fa:hover {
+color: #45405F;}
+
+.footer-icons {
+justify-content: space-between;
+padding: 16px 64px 0px 0px}
+
+.footer-icons ul {
+list-style-type: none;}
+
+.footer-icons li {
+display: inline-block;
+color: #000;}
+
+.footer-right {
+margin-left: auto}
+
+
+.footer-container .fab {
+    color: #F5F6F7; /* Set icon color */
+    font-size: 2rem; /* Adjust icon size as needed */
+    margin: 0 10px; /* Add spacing between icons */
+}
+
+.footer-container .fab:hover {
+    color: #45405F; /* Change icon color on hover */
+}
+
+#image-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-image-container {
+    width: auto; /* Make main image container 50% of the width */
+    margin-bottom: 20px;
+    border-radius: 15%;
+    border: 5px solid #156c7c;
+
+    overflow: hidden; /* Hide overflow for smooth transition */
+}
+
+.main-image {
+    width: 100%; /* Make main image fill its container */
+    height: auto;
+    transition: transform 0.5s ease; /* Smooth transition between images */
+}
+
+.thumbnail-container {
+    display: flex;
+    justify-content: center;
+}
+
+.thumbnail {
+    width: 50px; /* Adjust thumbnail size as needed */
+    height: auto;
+    margin: 0 10px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.thumbnail:hover {
+    opacity: 1;
+}
+
