@@ -1,2 +1,2 @@
 Website for the Stoney Lake Sprint.
-View the website [here](stoneylakesprint.ca)
+View the website [here](https://stoneylakesprint.ca)
