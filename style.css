@@ -14,10 +14,11 @@ body {
 }
 
 .hero-image {
-    width: 100%;
+    width: 95%;
     max-width: 600px;
     display: block;
     margin: 0 auto;
+    margin-top: 15vh;
     border-radius: 100%;
     border: 5px solid #eaebeb;
 }
@@ -141,87 +142,157 @@ h2 {
 }
 
 footer {
-    text-align: center;}
-    
-.footer-container {
-background-color: #156c7c;
-display: flex;}
+width: 100%;
+margin: 0;               /* no extra gutters */
+padding: 0;
+}
+.footer-icons ul {
+    list-style: none;     /* remove bullets */
+    margin: 0;            /* remove default ul margin */
+    padding: 0;           /* remove default ul padding */
+    display: flex;        /* line your icons up */
+    gap: 16px;            /* space between icons */
+    justify-content: center;
+    align-items: center;
+}
 
+.footer-icons li {
+margin: 0;            /* ensure no extra spacing */
+}
+
+/* full-width background + flex layout */
+.footer-container {
+width: 100%;
+display: flex;
+flex-wrap: wrap;             /* allow wrapping */
+justify-content: space-between;
+align-items: center;
+background-color: #156c7c;
+padding: 16px;               /* some breathing room */
+box-sizing: border-box;      /* include padding in width */
+}
+
+/* three flex “columns”: left, center, right */
+.footer-left,
+.footer-icons,
+.footer-right {
+flex: 1 1 0;                 /* grow/shrink equally */
+min-width: 150px;            /* avoid collapsing too small */
+}
+
+/* align each column */
+.footer-left  { text-align: left; }
+.footer-icons { text-align: center; }
+.footer-right { text-align: right; }
+
+/* your existing link/icon styling */
 .footer-container a {
 color: #F5F6F7;
-padding: 42px 16px;
 text-decoration: none;
 font-family: Arial, Helvetica, sans-serif;
 font-weight: bold;
-font-size: medium;}
-
-.footer-left {
-margin-right: auto}
-
-.fa:hover {
-color: #45405F;}
-
-.footer-icons {
-justify-content: space-between;
-padding: 16px 64px 0px 0px}
-
-.footer-icons ul {
-list-style-type: none;}
-
-.footer-icons li {
+font-size: 1rem;
+padding: 8px 12px;
 display: inline-block;
-color: #000;}
-
-.footer-right {
-margin-left: auto}
-
-
+}
 .footer-container .fab {
-    color: #F5F6F7; /* Set icon color */
-    font-size: 2rem; /* Adjust icon size as needed */
-    margin: 0 10px; /* Add spacing between icons */
+font-size: 1.75rem;
+margin: 0 8px;
+transition: color 0.2s;
+}
+.footer-container .fab:hover {
+color: #45405F;
 }
 
-.footer-container .fab:hover {
-    color: #45405F; /* Change icon color on hover */
+
+/* mobile: stack the three columns full-width */
+@media (max-width: 600px) {
+.footer-left,
+.footer-icons,
+.footer-right {
+    flex: 1 1 100%;
+    text-align: center;
+    margin: 6px 0;
 }
+.footer-container > p {
+    flex: 1 1 100%;      /* make it take the full row */
+    margin: 6px 0;       /* match your other flex items */
+    text-align: center;  /* center its contents */
+}
+}  
 
 #image-gallery {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .main-image-container {
-    width: auto; /* Make main image container 50% of the width */
-    margin-bottom: 20px;
-    border-radius: 15%;
-    border: 5px solid #156c7c;
-
-    overflow: hidden; /* Hide overflow for smooth transition */
+width: 80%;             /* fill the parent container */
+max-width: 800px;        /* never grow above 800px */
+aspect-ratio: 800 / 607; /* lock in that shape */
+overflow: hidden;        /* crop overflow for object-fit */
+border-radius: 15%;
+border: 5px solid #156c7c;
 }
 
+
 .main-image {
-    width: 100%; /* Make main image fill its container */
-    height: auto;
-    transition: transform 0.5s ease; /* Smooth transition between images */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* fill & crop without distortion */
+    transition: transform 0.5s ease;
 }
 
 .thumbnail-container {
-    display: flex;
-    justify-content: center;
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 10px;
+margin-top: 20px;
+width: 100%;
+max-width: 800px;
 }
 
 .thumbnail {
-    width: 50px; /* Adjust thumbnail size as needed */
-    height: auto;
-    margin: 0 10px;
-    cursor: pointer;
-    opacity: 0.5;
-    transition: opacity 0.3s ease-in-out;
+/* three thumbnails per row, minus gaps */
+width: calc(15.333%);
+aspect-ratio: 800 / 607;
+object-fit: cover;
+cursor: pointer;
+opacity: 0.5;
+transition: opacity 0.3s ease-in-out;
 }
 
 .thumbnail:hover {
-    opacity: 1;
+opacity: 1;
+};
+
+img,  
+iframe,  
+video {  
+max-width: 100%;  
+height: auto;  
+display: block;       /* ensures block-level sizing */  
 }
 
+.location {
+    width: 100%;
+    max-width: 600px;     /* optional cap */
+    height: auto;
+    margin: 0 auto;       /* center on larger screens */
+    display: block;
+}
+
+/* include padding/border inside width calculations */
+*, *::before, *::after {
+box-sizing: border-box;
+}
+
+/* kill any accidental horizontal overflow */
+html, body {
+margin: 0;
+padding: 0;
+overflow-x: hidden;
+}
