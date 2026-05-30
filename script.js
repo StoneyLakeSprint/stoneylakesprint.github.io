@@ -7,7 +7,7 @@ var icsData = new Blob([
     'CALSCALE:GREGORIAN\n',
     'PRODID:-//Stoney Lake Sprint//EN\n',
 
-    // time‐zone definition for Toronto (EST/EDT)
+    // time-zone definition for Toronto (EST/EDT)
     'BEGIN:VTIMEZONE\n',
     'TZID:America/Toronto\n',
     'X-LIC-LOCATION:America/Toronto\n',
@@ -29,20 +29,19 @@ var icsData = new Blob([
 
     'BEGIN:VEVENT\n',
     // unique ID
-    'UID:20250705T093000-1234567890@stoneylakesprint.ca\n',
+    'UID:20260704T083000-1234567890@stoneylakesprint.ca\n',
     // when the .ics was generated (UTC)
-    'DTSTAMP:20250529T142543Z\n',
-    // event start in Toronto time
-    'DTSTART;TZID=America/Toronto:20250705T093000\n',
-    // event end (1:00 PM)
-    'DTEND;TZID=America/Toronto:20250705T120000\n',
-    'SUMMARY:Stoney Lake Sprint 2025\n',
-    'DESCRIPTION:Little Sprinters 1K race starts at 9:30 AM; ' + '5K Run & Walk starts at 10:00 AM. Registration opens at 8:30 AM at Viamede Resort.\n',
+    'DTSTAMP:20260530T170000Z\n',
+    // event start in Toronto time (registration opens)
+    'DTSTART;TZID=America/Toronto:20260704T080000\n',
+    // event end
+    'DTEND;TZID=America/Toronto:20260704T120000\n',
+    'SUMMARY:Stoney Lake Sprint 2026\n',
+    'DESCRIPTION:Registration opens at 8:00 AM at Viamede Resort. Little Sprinters 1K race starts at 8:30 AM. 5K Run & Walk starts at 9:00 AM.\n',
     'LOCATION:595 Mount Julian Viamede Road, Woodview, ON K0L 3E0\n',
     'END:VEVENT\n',
     'END:VCALENDAR\n'
 ], { type: 'text/calendar' });
-
 
     // Create a URL for the Blob
     var url = window.URL.createObjectURL(icsData);
@@ -52,7 +51,7 @@ var icsData = new Blob([
     link.href = url;
 
     // Set the filename
-    link.setAttribute('download', 'StoneyLakeSprint2025.ics');
+    link.setAttribute('download', 'StoneyLakeSprint2026.ics');
 
     // Append the link to the document body
     document.body.appendChild(link);
@@ -106,26 +105,27 @@ var set = document.querySelector('.set');
 var go = document.querySelector('.go');
 
 window.addEventListener('scroll', function() {
-    var scrollTop = window.scrollY;
+    // Look at the bottom edge of the screen so it triggers as you scroll down
+    var scrollTrigger = window.scrollY + window.innerHeight - 50; 
+    
     var readyOffset = ready.offsetTop;
     var setOffset = set.offsetTop;
     var goOffset = go.offsetTop;
 
-    if (scrollTop >= readyOffset && !ready.classList.contains('active')) {
+    if (scrollTrigger >= readyOffset && !ready.classList.contains('active')) {
         ready.classList.add('active');
     }
 
-    if (scrollTop >= setOffset && !set.classList.contains('active')) {
+    if (scrollTrigger >= setOffset && !set.classList.contains('active')) {
         set.classList.add('active');
     }
 
-    if (scrollTop >= goOffset && !go.classList.contains('active')) {
+    if (scrollTrigger >= goOffset && !go.classList.contains('active')) {
         go.classList.add('active');
     }
 });
 
-
-var countDownDate = new Date("Jul 5, 2025 09:30:00").getTime();
+var countDownDate = new Date("Jul 4, 2026 08:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {

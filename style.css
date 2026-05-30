@@ -1,4 +1,3 @@
-
 .francois-one-regular {
     font-family: "Francois One", sans-serif;
     font-weight: 400;
@@ -7,10 +6,12 @@
 
 body {
     margin: 0;
-    font-family: Tahoma, sans-serif;
+    /* Upgraded font stack for a cleaner, modern look */
+    font-family: 'Inter', system-ui, -apple-system, sans-serif; 
     background-color: #0b444d;
     color: #ffffff;
-    position: relative; /* Ensure proper positioning */
+    position: relative; 
+    line-height: 1.6; /* Improves readability */
 }
 
 .hero-image {
@@ -18,9 +19,10 @@ body {
     max-width: 600px;
     display: block;
     margin: 0 auto;
-    margin-top: 15vh;
+    margin-top: 10vh;
     border-radius: 100%;
     border: 5px solid #eaebeb;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Added soft shadow */
 }
 
 main {
@@ -29,196 +31,226 @@ main {
 }
 
 section {
-    transition: font-size 0.5s, opacity 0.5s;
-    margin-bottom: 50px;
-    
+    transition: opacity 0.5s;
+    margin-bottom: 70px; /* Slightly increased breathing room */
 }
+
 h2 {
     color: #41839b;
     font-size: 40px;
+    font-family: "Francois One", sans-serif; /* Ensuring headers use the custom font */
+    margin-bottom: 20px;
 }
-
 
 .link-container {
     text-align: center;
     margin-top: 50px;
 }
 
-
 .link-container a {
     color: #ffffff;
     text-decoration: none;
     margin: 0 10px;
 }
-
 #ready-section {
     text-align: center;
-    margin-top: 20px;
-    position: relative; /* Fixed position */
-    bottom: 0; /* Align to the bottom */
-    width: 100%; /* Full width */
+    margin-top: 40px; 
+    position: relative; 
+    width: 100%; 
 }
 
 .ready, .set, .go {
     display: inline-block;
-    font-size: 24px; /* Initial font size */
-    opacity: 0; /* Initially hidden */
-    transition: font-size 0.5s, opacity 0.5s; /* Transition for font size and opacity */
+    font-family: "Francois One", sans-serif;
+    font-size: 24px; 
+    opacity: 0; 
+    transition: font-size 0.5s, opacity 0.5s; 
+    margin: 0;
+    text-transform: uppercase;
 }
 
-.ready.active, .set.active, .go.active {
-    font-size: 48px; /* Increased font size */
-    opacity: 1; /* Visible */
+/* Stagger the animations so they pop in one by one */
+.set {
+    transition-delay: 0.3s;
 }
-.downloadButton{
-    border-radius: 20%;;
+
+.go {
+    transition-delay: 0.6s;
+}
+
+/* The bold, screen-filling statement */
+.ready.active, .go.active {
+    opacity: 1; 
+    font-size: 90px; 
+    color: #ffffff;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    line-height: 1.1;
+}
+
+.set.active {
+    opacity: 1; 
+    font-size: 90px; 
+    color: #156c7c;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    line-height: 1.1;
+}
+
+/* Keeps it from breaking mobile screens */
+@media (max-width: 600px) {
+    .ready.active, .set.active, .go.active {
+        font-size: 55px; 
+    }
+}
+
+/* Modernized Buttons */
+.downloadButton, .register, .donate {
+    color: #ffffff;
+    border-radius: 30px; /* Clean pill shape */
     background-color: #156c7c;
     font-family: "Francois One", sans-serif;
-    border: 10px solid #156c7c;
-    transition: 0.4s;
-    
-    
+    font-size: 1.1rem;
+    padding: 15px 35px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
 }
 
-.downloadButton:hover{
+.downloadButton:hover, .register:hover, .donate:hover {
     background-color: #353e3b;
-    transition: 0.4s;
-}
-.donate{
-    color:#000;
-    border-radius: 20%;;
-    background-color: #156c7c;
-    font-family: "Francois One", sans-serif;
-    border: 10px solid #156c7c;  
-    transition: 0.4s;
+    transform: translateY(-3px); /* Subtle hover lift */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-
-
-
-
-.donate:hover{
-    background-color: #353e3b;
-    transition: 0.4s;
-
-}
-
-
-.register{
-    color:#000;
-    border-radius: 20%;;
-    background-color: #156c7c;
-    font-family: "Francois One", sans-serif;
-    padding: 25px;
-    margin: 10px;
-    border: 10px solid #156c7c;  
-    transition: 0.4s;
-}
-
-
-
-
-
-.register:hover{
-    background-color: #353e3b;
-    transition: 0.4s;
-
-}
-
-
-
-
-
-.volunteer-image{
-    align-self: center;
-    size: 30%;
-    border-radius: 15%;
-    border: 5px solid #156c7c;
-}
-
-.location{
-    width: auto;
+.volunteer-image {
+    margin: 30px auto 0;
+    max-width: 65%; /* Moved width/height from HTML to CSS */
     height: auto;
+    border-radius: 15px; /* Softer corners */
+    border: 5px solid #156c7c;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Sponsor Flexbox Layout */
+#sponser-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.sponsor-logos {
+    display: flex;
+    flex-wrap: wrap;         
+    justify-content: center; 
+    align-items: center;     
+    gap: 40px;               
+    margin-top: 40px;
+    max-width: 1000px;       
+    margin-inline: auto;     
+}
+
+.sponsor-logos img {
+    max-width: 200px;        
+    max-height: 120px;       
+    width: auto;             
+    height: auto;            
+    object-fit: contain;     
+}
+
+.sponsor-logos a {
+    transition: transform 0.2s ease-in-out;
+}
+
+.sponsor-logos a:hover {
+    transform: scale(1.05);
+}
+
+.location {
+    width: 100%;
+    max-width: 600px;
+    height: 450px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 10px; /* Soften map edges */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 footer {
-width: 100%;
-margin: 0;               /* no extra gutters */
-padding: 0;
+    width: 100%;
+    margin: 0;               
+    padding: 0;
 }
+
 .footer-icons ul {
-    list-style: none;     /* remove bullets */
-    margin: 0;            /* remove default ul margin */
-    padding: 0;           /* remove default ul padding */
-    display: flex;        /* line your icons up */
-    gap: 16px;            /* space between icons */
+    list-style: none;     
+    margin: 0;            
+    padding: 0;           
+    display: flex;        
+    gap: 16px;            
     justify-content: center;
     align-items: center;
 }
 
 .footer-icons li {
-margin: 0;            /* ensure no extra spacing */
+    margin: 0;            
 }
 
-/* full-width background + flex layout */
 .footer-container {
-width: 100%;
-display: flex;
-flex-wrap: wrap;             /* allow wrapping */
-justify-content: space-between;
-align-items: center;
-background-color: #156c7c;
-padding: 16px;               /* some breathing room */
-box-sizing: border-box;      /* include padding in width */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;             
+    justify-content: space-between;
+    align-items: center;
+    background-color: #156c7c;
+    padding: 20px;               
+    box-sizing: border-box;      
 }
 
-/* three flex “columns”: left, center, right */
 .footer-left,
 .footer-icons,
 .footer-right {
-flex: 1 1 0;                 /* grow/shrink equally */
-min-width: 150px;            /* avoid collapsing too small */
+    flex: 1 1 0;                 
+    min-width: 150px;            
 }
 
-/* align each column */
 .footer-left  { text-align: left; }
 .footer-icons { text-align: center; }
 .footer-right { text-align: right; }
 
-/* your existing link/icon styling */
 .footer-container a {
-color: #F5F6F7;
-text-decoration: none;
-font-family: Arial, Helvetica, sans-serif;
-font-weight: bold;
-font-size: 1rem;
-padding: 8px 12px;
-display: inline-block;
+    color: #F5F6F7;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 8px 12px;
+    display: inline-block;
 }
+
 .footer-container .fab {
-font-size: 1.75rem;
-margin: 0 8px;
-transition: color 0.2s;
+    font-size: 1.75rem;
+    margin: 0 8px;
+    transition: color 0.2s;
 }
+
 .footer-container .fab:hover {
-color: #45405F;
+    color: #45405F;
 }
 
-
-/* mobile: stack the three columns full-width */
 @media (max-width: 600px) {
-.footer-left,
-.footer-icons,
-.footer-right {
-    flex: 1 1 100%;
-    text-align: center;
-    margin: 6px 0;
-}
-.footer-container > p {
-    flex: 1 1 100%;      /* make it take the full row */
-    margin: 6px 0;       /* match your other flex items */
-    text-align: center;  /* center its contents */
-}
+    .footer-left,
+    .footer-icons,
+    .footer-right {
+        flex: 1 1 100%;
+        text-align: center;
+        margin: 6px 0;
+    }
+    .footer-container > p {
+        flex: 1 1 100%;      
+        margin: 6px 0;       
+        text-align: center;  
+    }
 }  
 
 #image-gallery {
@@ -229,70 +261,59 @@ color: #45405F;
 }
 
 .main-image-container {
-width: 80%;             /* fill the parent container */
-max-width: 800px;        /* never grow above 800px */
-aspect-ratio: 800 / 607; /* lock in that shape */
-overflow: hidden;        /* crop overflow for object-fit */
-border-radius: 15%;
-border: 5px solid #156c7c;
+    width: 80%;             
+    max-width: 800px;        
+    aspect-ratio: 800 / 607; 
+    overflow: hidden;        
+    border-radius: 15px;
+    border: 5px solid #156c7c;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Added depth */
 }
-
 
 .main-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;          /* fill & crop without distortion */
+    object-fit: cover;          
     transition: transform 0.5s ease;
 }
 
 .thumbnail-container {
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
-gap: 10px;
-margin-top: 20px;
-width: 100%;
-max-width: 800px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
 }
 
 .thumbnail {
-/* three thumbnails per row, minus gaps */
-width: calc(15.333%);
-aspect-ratio: 800 / 607;
-object-fit: cover;
-cursor: pointer;
-opacity: 0.5;
-transition: opacity 0.3s ease-in-out;
+    width: calc(15.333%);
+    aspect-ratio: 800 / 607;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.5;
+    border-radius: 5px; /* Rounded thumbnail edges slightly */
+    transition: opacity 0.3s ease-in-out, transform 0.2s;
 }
 
 .thumbnail:hover {
-opacity: 1;
-};
-
-img,  
-iframe,  
-video {  
-max-width: 100%;  
-height: auto;  
-display: block;       /* ensures block-level sizing */  
+    opacity: 1;
+    transform: scale(1.05); /* Slight pop effect on hover */
 }
 
-.location {
-    width: 100%;
-    max-width: 600px;     /* optional cap */
-    height: auto;
-    margin: 0 auto;       /* center on larger screens */
-    display: block;
+img, iframe, video {  
+    max-width: 100%;  
+    height: auto;  
+    display: block;       
 }
 
-/* include padding/border inside width calculations */
 *, *::before, *::after {
-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-/* kill any accidental horizontal overflow */
 html, body {
-margin: 0;
-padding: 0;
-overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
